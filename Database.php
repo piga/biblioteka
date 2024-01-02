@@ -34,7 +34,4 @@ class Database
         }
     }
 }
-
-$db = Database::getInstance();
-$conn = $db->getConnection();
 ?>

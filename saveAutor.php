@@ -1,28 +1,19 @@
 <?php
+include_once "EntityFactory.php";
+include_once "ControllerBiblioteka.php";
 
-function save_autor()
+if(isset($_POST["ime"]) && isset($_POST["prezime"]))
 {
-    try
-        {
-            global $conn;
-
-            $query = "insert into autor (ime, prezime) values (?, ?)";
-            $stmt = $conn->prepare($query);
-
-            $stmt->bindParam(1, $ime);
-            $stmt->bindParam(2, $prezime);
-
-            $ime = "Deniss";
-            $prezime = "Rodman";    
-
-            $stmt->execute();
-
-            echo "Autor uspješno dodan. <br>";
-        }
-        catch (PDOException $e)
-        {
-            echo "spremanje autora je pošlo po zlu: ".$e->getMessage();
-        }    
-    }
+    $ime = $_POST["ime"];
+    $prezime = $_POST["prezime"];
+    
+    $a_c = new AutorCreator($ime, $prezime);
+    $autor = $a_c->stvori();
+    $autor->spremi();
+    
+    $kontroler = new ControllerBiblioteka();
+    $kontroler->prikazi();
+}
+    
 
 ?>
