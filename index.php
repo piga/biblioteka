@@ -1,5 +1,7 @@
 <?php
-   require "autoload.php";
+
+   //include "autoload.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -7,6 +9,7 @@
 <body>
     <h1>Biblioteka</h1>
     <p>
+        
     </p>
     
     <form action='saveAutor.php' method='POST'>

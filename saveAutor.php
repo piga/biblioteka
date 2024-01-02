@@ -1,6 +1,6 @@
 <?php
-include_once "EntityFactory.php";
-//include_once "ControllerBiblioteka.php";
+
+include_once "autoload.php";
 
 if(isset($_POST["ime"]) && isset($_POST["prezime"]))
 {
