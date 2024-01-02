@@ -10,7 +10,7 @@ class Database
         
     }
     
-    public function getInstance()
+    public static function getInstance()
     {
             if(!self::$instance)
             {
@@ -25,7 +25,7 @@ class Database
         {
             $this->conn = new PDO('mysql:host=localhost;dbname=knjiznica', "root", "");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-            echo "Database connection sucesfull. \n";
+            echo "Database connection sucesfull. <br>";
             return $this->conn;
         }
         catch(PDOException $e)
@@ -34,4 +34,7 @@ class Database
         }
     }
 }
+
+$db = Database::getInstance();
+$conn = $db->getConnection();
 ?>
