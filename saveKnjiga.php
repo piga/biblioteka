@@ -1,33 +1,17 @@
+
 <?php
+include_once "EntityFactory.php";
+//include_once "ControllerBiblioteka.php";
 
-function save_knjiga()
+if(isset($_POST["autor_id"]) && isset($_POST["naslov"]) && isset($_POST["god_izdanja"]))
 {
-    try
-        {
-            global $conn;
-            
-            $db = Database::getInstance();
-            $conn = $db->getConnection();
-
-            $query = "insert into knjiga (autor_id, naslov, godina_izdanja) values (?, ?, ?)";
-            $stmt = $conn->prepare($query);
-
-            $stmt->bindParam(1, $autor_id);
-            $stmt->bindParam(2, $naslov);
-            $stmt->bindParam(3, $god_izdanja);
-
-            $autor_id = "24";
-            $naslov = "Ja sam obrambeni igrač";
-            $god_izdanja = "1990";
-
-            $stmt->execute();
-
-            echo "Knjiga uspješno dodana. <br>";
-        }
-        catch (PDOException $e)
-        {
-            echo "spremanje knjige je pošlo po zlu: ".$e->getMessage();
-        }
-    }
-
+    $ai = $_POST["autor_id"];
+    $n = $_POST["naslov"];
+    $gi = $_POST["god_izdanja"];
+    
+    $k_c = new KnjigaCreator($ai, $n, $gi);
+    $knjiga = $k_c->stvori();
+    $knjiga->spremi();
+}
+ 
 ?>
