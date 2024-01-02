@@ -11,5 +11,5 @@ spl_autoload_call("saveAutor");
 spl_autoload_call("Database");
 spl_autoload_call("saveKnjiga");
 spl_autoload_call("View");
-
+spl_autoload_call("EntityFactory");
 ?>

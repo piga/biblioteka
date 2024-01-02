@@ -9,11 +9,21 @@
     <p>
         <?php 
       
+        $a_c     = new AutorCreator();
+        $autor   = $a_c->stvori();
+        $autor->spremi();
+        unset($autor);
+        unset($a_c);
 
-
-        echo save_autor();
+        $k_c = new KnjigaCreator();
+        $knjiga = $k_c -> stvori();
+        $knjiga->spremi();
+        unset($knjiga);
+        unset($k_c);
         
-        echo save_knjiga();
+        //echo save_autor();
+        
+        //echo save_knjiga();
         
         ?>
     </p>

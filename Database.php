@@ -25,7 +25,7 @@ class Database
         {
             $this->conn = new PDO('mysql:host=localhost;dbname=knjiznica', "root", "");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
-            echo "Database connection sucesfull. <br>";
+            //echo "Database connection sucesfull. <br>";
             return $this->conn;
         }
         catch(PDOException $e)
