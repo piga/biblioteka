@@ -1,6 +1,6 @@
 <?php
 
-class ViewBiblioteka
+class View
 {
     public function autor_forma(): string
     {
@@ -37,5 +37,7 @@ class ViewBiblioteka
     </form>
     ";
     }
+    public function __destruct()
+    {}
 }
 ?>

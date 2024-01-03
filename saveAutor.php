@@ -11,7 +11,5 @@ if(isset($_POST["ime"]) && isset($_POST["prezime"]))
     $autor = $a_c->stvori();
     $autor->spremi();
 }
- 
-
 
 ?>
