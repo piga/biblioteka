@@ -1,7 +1,5 @@
 <?php
-
    include "autoloadMVC.php";
-
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +15,7 @@
     $ctrl = new Controller();
     $ctrl->prikazi_autor_formu();
     $ctrl->prikazi_knjiga_formu();
-    
+    $ctrl->all_autors();
     ?>
     
     

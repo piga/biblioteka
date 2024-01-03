@@ -37,6 +37,39 @@ class View
     </form>
     ";
     }
+    
+    public function prikazi_sve_autore($autori)
+    {
+        $tablica = "<table border='1'>
+        <tr>
+            <th>ID</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+        </tr>
+        
+        <tr>
+            <td>3</td>
+            <td>Neko ime</td>
+            <td>Neko prezime</td>
+        </tr>
+        ";
+        
+        foreach($autori as $autor)
+        {
+            $id = "<td>{$autor['id']}</td>";  //možda bi radilo i bez vitičastih zagrada
+            $ime = "<td>{$autor['ime']}</td>";  
+            $prezime = "<td>{$autor['prezime']}</td>";
+                
+            $red = "<tr>$id $ime $prezime</tr>";
+            
+            $tablica .= $red;
+        }
+        
+        $tablica .= "</table>";
+        
+        return $tablica;
+    }
+    
     public function __destruct()
     {}
 }
