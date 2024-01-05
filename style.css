@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    padding-top: 0;
+}
+h1 {
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background-color: #FFA333;
+}
+
+.split {
+  
+  width: 50%;
+    float:  left;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  
+  background-color: #D3F9B5;
+}
+
+/* Control the right side */
+.right {
+  
+  background-color: #DDFC74;
+}
+
+table, input, h2, label{
+    margin-left: 20px;
+}

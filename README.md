@@ -10,7 +10,7 @@ Nije loše, ali još trebam namespacove napraviti, to još neznam uklopiti u aut
 Nisam je napravio.
 
 ## Izgled
-Nisam popravio. Pogledajte dvije slike.
+Popravio sam malo. Pogledajte dvije slike.
 
 ## Testovi
 Nisam napravio. Ali sve radi.
