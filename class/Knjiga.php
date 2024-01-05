@@ -4,7 +4,7 @@ class Knjiga implements Entity
 {
     private $autor_id, $naslov, $god_izdanja, $conn;
     
-    public function __construct($ai, $n, $gi)
+    public function __construct($ai="", $n="", $gi="")
     {
         $this->autor_id = $ai;
         $this->naslov = $n;
@@ -35,10 +35,20 @@ class Knjiga implements Entity
         }
 
     }
-    public function __destruct()
+    
+    public function all(): array
     {
-        echo "Objekt Knjiga je uništena. <br>";
+        $rows = [];
+        
+        $query = "select * from knjiga";
+        $stmt = $this->conn->query($query, PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll();
+        
+        return $rows;
     }
+    
+    public function __destruct()
+    {}
 }
 
 ?>

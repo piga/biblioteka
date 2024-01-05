@@ -1,5 +1,6 @@
 <?php
-   include "autoloadMVC.php";
+ //  include "autoloadMVC.php";
+   include "autoload.php";
 ?>
 
 <!DOCTYPE html>

@@ -4,7 +4,7 @@ class Autor implements Entity
 {
     private $ime, $prezime, $conn;
     
-    public function __construct($i, $p)
+    public function __construct($i="", $p="")
     {
         $this->ime = $i;
         $this->prezime = $p;
@@ -31,6 +31,18 @@ class Autor implements Entity
             echo "spremanje autora je pošlo po zlu: ".$e->getMessage();
         }
     }
+    
+    public function all(): array
+    {
+        $rows = [];
+        
+        $query = "select * from autor";
+        $stmt = $this->conn->query($query, PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll();
+        
+        return $rows;
+    }
+    
     public function __destruct()
     {
     

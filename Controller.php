@@ -1,18 +1,14 @@
 <?php
 
-//include "View.php";
+//include "autoload.php";
 
 class Controller
 {
-    private $view, $conn;
+    private $view;
     
     public function __construct()
-    {
+    {        
         $this->view = new View();
-        
-        //žao mi je što moram ovdje stavrati objekt baze, ali neznam drugačije.
-        $db = Database::getInstance();
-        $this->conn = $db->getConnection();
     }
     
     public function prikazi_autor_formu()
@@ -26,23 +22,19 @@ class Controller
     
     public function all_autors()
     {
-        $rows = [];
+        $autor = new Autor();
         
-        $query = "select * from autor";
-        $stmt = $this->conn->query($query, PDO::FETCH_ASSOC);
-        $rows = $stmt->fetchAll();
-        
+        $rows = $autor->all();
+                
         echo $this->view->prikazi_sve_autore($rows);
     }
     
     public function all_knjige()
     {
-        $rows = [];
+        $knjiga = new Knjiga();
         
-        $query = "select * from knjiga";
-        $stmt = $this->conn->query($query, PDO::FETCH_ASSOC);
-        $rows = $stmt->fetchAll();
-        
+        $rows = $knjiga->all();
+                
         echo $this->view->prikazi_sve_knjige($rows);
     }
     
