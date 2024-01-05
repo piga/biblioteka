@@ -18,6 +18,7 @@ class View
     ";
     
     }
+    
     function knjiga_forma(): string
     {
         return "
@@ -38,19 +39,13 @@ class View
     ";
     }
     
-    public function prikazi_sve_autore($autori)
+    public function prikazi_sve_autore($autori): string
     {
         $tablica = "<table border='1'>
         <tr>
             <th>ID</th>
             <th>Ime</th>
             <th>Prezime</th>
-        </tr>
-        
-        <tr>
-            <td>3</td>
-            <td>Neko ime</td>
-            <td>Neko prezime</td>
         </tr>
         ";
         
@@ -61,6 +56,35 @@ class View
             $prezime = "<td>{$autor['prezime']}</td>";
                 
             $red = "<tr>$id $ime $prezime</tr>";
+            
+            $tablica .= $red;
+        }
+        
+        $tablica .= "</table>";
+        
+        return $tablica;
+    }
+   
+    public function prikazi_sve_knjige($knjige): string
+    {
+        //funkcija će vratiti tablicu.
+      $tablica = "<table border='1'>   
+        <tr>
+            <th>ID</th>
+            <th>Autod ID</th>
+            <th>Naslov</th>
+            <th>Godina izdanja</th>
+        </tr>
+        ";
+        
+        foreach($knjige as $knjiga)
+        {
+            $id = "<td>{$knjiga['id']}</td>";  //možda bi radilo i bez vitičastih zagrada
+            $a_id = "<td>{$knjiga['autor_id']}</td>";  
+            $nasl = "<td>{$knjiga['naslov']}</td>";
+            $god_izd = "<td>{$knjiga['godina_izdanja']}</td>";
+                
+            $red = "<tr>$id $a_id $nasl $god_izd</tr>";
             
             $tablica .= $red;
         }

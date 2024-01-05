@@ -12,6 +12,10 @@ if(isset($_POST["autor_id"]) && isset($_POST["naslov"]) && isset($_POST["god_izd
     $k_c = new KnjigaCreator($ai, $n, $gi);
     $knjiga = $k_c->stvori();
     $knjiga->spremi();
+    
+    //sada radim redirect na početnu stranicu
+    header("Location: http://biblioteka.localhost");
+    exit();  //neznam zašto mi je potreban exit ali tako je pisalo na internetu.
 }
  
 ?>

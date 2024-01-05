@@ -35,6 +35,17 @@ class Controller
         echo $this->view->prikazi_sve_autore($rows);
     }
     
+    public function all_knjige()
+    {
+        $rows = [];
+        
+        $query = "select * from knjiga";
+        $stmt = $this->conn->query($query, PDO::FETCH_ASSOC);
+        $rows = $stmt->fetchAll();
+        
+        echo $this->view->prikazi_sve_knjige($rows);
+    }
+    
     public function __destruct()
     {}
 }
